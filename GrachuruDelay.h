@@ -29,7 +29,7 @@ public:
 private:
     
     double getInterpolatedSample(float inDelayTimeInSamples);
-    int returnRandomNumber();
+    int returnRandomNumber(int maxNumber);
     
     double mSampleRate;
     double mBuffer[maxBufferSize];

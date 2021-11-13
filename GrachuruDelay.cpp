@@ -62,7 +62,7 @@ void GrachuruDelay::process(float* inAudio,
         
         outAudio[i] = (inAudio[i] * dry + sample * wet);
         
-        mDelayIndex + returnRandomNumber();
+        mDelayIndex += returnRandomNumber(inNumSamplesToRender);
         
         if (mDelayIndex > maxBufferSize)
         {
@@ -101,8 +101,9 @@ double GrachuruDelay::getInterpolatedSample(float inDelayTimeInSamples)
     return outSample;
 }
 
-int GrachuruDelay::returnRandomNumber ()
+int GrachuruDelay::returnRandomNumber (int maxNumber)
 {
     //return a random number, bounds are changed by parameter (so not so random)
+    return 1;
 }
 
