@@ -1,6 +1,5 @@
 #pragma once
 #include "GrachuruPanelBase.h"
-#include "GrachuruTopPanel.h"
 #include "GrachuruGainPanel.h"
 #include "GrachuruCenterPanel.h"
 
@@ -14,7 +13,6 @@ public:
     
 private:
     
-    std::unique_ptr<GrachuruTopPanel> mTopPanel;
     std::unique_ptr<GrachuruGainPanel> mInputGainPanel;
     std::unique_ptr<GrachuruGainPanel> mOutputGainPanel;
     std::unique_ptr<GrachuruCenterPanel> mCenterPanel;
