@@ -65,7 +65,7 @@ void GrachuruDelay::process(float* inAudio,
         // so as of now, the random number will always be ahead of i in the buffer, since we add it here,
         // can the random number function return negatives?
         //even negative, odd positive?
-        mDelayIndex += returnRandomNumber(inNumSamplesToRender, i);
+        mDelayIndex += returnRandomNumber(inNumSamplesToRender, i) - smoothingCoefficient_Fine * returnRandomNumber(inNumSamplesToRender, i);
         
         if (mDelayIndex > maxBufferSize)
         {
@@ -109,8 +109,10 @@ int GrachuruDelay::returnRandomNumber (int maxNumber, int seed)
     
     // keep random within a certain (spray?) distance from i .. if spray = x, range = i + || - x
     // start point parameter to change "i"
+    
+    //sounded better when srand arg was 1 instead of seed ...
     std::srand(seed);
-    int x = std::rand()%maxNumber + 1;
+    int x = std::rand()%30 + 1;
     DBG(x);
     return x;
 }
